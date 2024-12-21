@@ -1,4 +1,7 @@
-function getFollowBackAndNotFollowBack(followersData, followingData) {
+const followingData = require('./following_n_followers');
+const followersData = require('./following_n_followers');
+
+function getFollowBackAndNotFollowBack() {
     if (!followersData.followers || !Array.isArray(followersData.followers) || followersData.followers.length === 0) {
         throw new Error("Followers data tidak valid atau kosong.");
     }
@@ -51,7 +54,7 @@ try {
     // console.log(result.followBack);
 
     console.log("Not Follow Back:");
-    console.log(result.notFollowBack);
+    console.table(result.notFollowBack);
 } catch (error) {
     console.error("Error:", error.message);
 }
